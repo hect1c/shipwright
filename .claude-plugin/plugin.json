@@ -1,0 +1,24 @@
+{
+  "name": "shipwright",
+  "description": "Craft the vessel that ships.",
+  "about": "A Claude Code skill for technical program management — from RFC to JIRA ticket.",
+  "version": "0.0.1",
+  "author": {
+    "name": "Yeltrah",
+    "email": "hartley.jeanaimee@gmail.com"
+  },
+  "homepage": "https://github.com/hect1c/shipwright",
+  "repository": "https://github.com/hect1c/shipwright",
+  "license": "MIT",
+  "keywords": [
+    "project-management",
+    "rfc",
+    "confluence",
+    "jira",
+    "linear",
+    "notion",
+    "planning",
+    "orchestration",
+    "technical-program-management"
+  ]
+}

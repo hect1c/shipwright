@@ -1,0 +1,21 @@
+{
+  "name": "shipwright-marketplace",
+  "description": "Marketplace for Shipwright — craft the vessel that ships.",
+  "owner": {
+    "name": "Yeltrah",
+    "email": "hartley.jeanaimee@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "shipwright",
+      "description": "Craft the vessel that ships.",
+      "about": "A Claude Code skill for technical program management — from RFC to JIRA ticket.",
+      "version": "0.0.1",
+      "source": "./",
+      "author": {
+        "name": "Yeltrah",
+        "email": "hartley.jeanaimee@gmail.com"
+      }
+    }
+  ]
+}
