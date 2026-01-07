@@ -1,0 +1,68 @@
+name: Validate Plugin
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JSON manifests
+        run: |
+          echo "Validating plugin.json..."
+          jq empty .claude-plugin/plugin.json
+          echo "Validating marketplace.json..."
+          jq empty .claude-plugin/marketplace.json
+
+      - name: Check required fields in plugin.json
+        run: |
+          echo "Checking required fields..."
+          jq -e '.name' .claude-plugin/plugin.json > /dev/null
+          jq -e '.description' .claude-plugin/plugin.json > /dev/null
+          jq -e '.version' .claude-plugin/plugin.json > /dev/null
+          echo "All required fields present"
+
+      - name: Check skills structure
+        run: |
+          echo "Checking skills directory..."
+          if [ ! -d "skills" ]; then
+            echo "Error: skills directory not found"
+            exit 1
+          fi
+
+          echo "Checking for SKILL.md files..."
+          skill_count=$(find skills -name "SKILL.md" | wc -l)
+          if [ "$skill_count" -eq 0 ]; then
+            echo "Error: No SKILL.md files found"
+            exit 1
+          fi
+          echo "Found $skill_count skill(s)"
+
+      - name: Validate SKILL.md frontmatter
+        run: |
+          echo "Validating skill frontmatter..."
+          for skill in skills/*/SKILL.md; do
+            echo "Checking $skill..."
+            # Check for YAML frontmatter
+            if ! head -1 "$skill" | grep -q "^---$"; then
+              echo "Error: $skill missing YAML frontmatter"
+              exit 1
+            fi
+            # Check for name field
+            if ! grep -q "^name:" "$skill"; then
+              echo "Error: $skill missing 'name' in frontmatter"
+              exit 1
+            fi
+            # Check for description field
+            if ! grep -q "^description:" "$skill"; then
+              echo "Error: $skill missing 'description' in frontmatter"
+              exit 1
+            fi
+            echo "$skill OK"
+          done
