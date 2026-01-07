@@ -1,3 +1,8 @@
+# Claude Code / Superpowers
+.worktrees/
+.private-journal/
+.claude/
+
 # OS
 .DS_Store
 Thumbs.db
@@ -7,6 +12,9 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+
+# Logs
+*.log
 
 # Node (if adding tooling later)
 node_modules/

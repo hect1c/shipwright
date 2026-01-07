@@ -1,6 +1,6 @@
 {
   "name": "shipwright-marketplace",
-  "description": "Marketplace for Shipwright — craft the vessel that ships.",
+  "description": "Technical program management skills for Claude Code — from brainstorm to RFC to JIRA tickets.",
   "owner": {
     "name": "Yeltrah",
     "email": "hartley.jeanaimee@gmail.com"
@@ -8,8 +8,7 @@
   "plugins": [
     {
       "name": "shipwright",
-      "description": "Craft the vessel that ships.",
-      "about": "A Claude Code skill for technical program management — from RFC to JIRA ticket.",
+      "description": "A Claude Code skill for technical program management — from RFC to JIRA ticket.",
       "version": "0.0.1",
       "source": "./",
       "author": {

@@ -1,7 +1,6 @@
 {
   "name": "shipwright",
-  "description": "Craft the vessel that ships.",
-  "about": "A Claude Code skill for technical program management — from RFC to JIRA ticket.",
+  "description": "A Claude Code skill for technical program management — from RFC to JIRA ticket.",
   "version": "0.0.1",
   "author": {
     "name": "Yeltrah",
